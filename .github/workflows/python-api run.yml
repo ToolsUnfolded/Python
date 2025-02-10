@@ -30,10 +30,9 @@ jobs:
         pip install requests
 
     - name: Set up OAG Subscription Key as environment variable
-      run: OAG_SUBSCRIPTION_KEY: ${{ secrets.OMG_SUBSCRIPTION_KEY }}  # Injected the secret as an environment variable
+      run: OAG_SUBSCRIPTION_KEY= ${{ secrets.OAG_SUBSCRIPTION_KEY }}   # Injected the secret as an environment variable
 
         
-
     - name: Run oag-flightinfo-api
       run: |
         python APIs/oag-flightinfo-api/oagflightinfo.py
