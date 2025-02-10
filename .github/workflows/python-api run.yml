@@ -31,7 +31,7 @@ jobs:
 
     - name: Run script
       run: |
-        python script.py
+        python APIs/oag-flightinfo-api/oagflightinfo.py
       env:
         SUBSCRIPTION_KEY: ${{ secrets.OMG_SUBSCRIPTION_KEY }}  # Inject the secret as an environment variable
 
