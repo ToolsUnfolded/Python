@@ -1,6 +1,6 @@
 import requests
 import json
-import os  # Import os to access environment variables
+import os  # Imported os to access environment variables
 
 try:
     # Define your API endpoint and headers
