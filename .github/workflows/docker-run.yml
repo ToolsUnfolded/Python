@@ -29,7 +29,7 @@ jobs:
         pwd
         ls -ltr
         docker build -t ${{ secrets.DOCKER_USERNAME }}/toolsunfolded_repo:oag_flight_info .
-        echo " docker build completed"
+        echo " ************************** docker build completed ********************************* "
         # Push the image to Docker Hub
         docker push ${{ secrets.DOCKER_USERNAME }}/toolsunfolded_repo:oag_flight_info
 
