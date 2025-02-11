@@ -26,7 +26,9 @@ jobs:
       run: |
         # Build the Docker image and tag it with 'latest'
         pwd 
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/toolsunfolded_repo:oag_flight_info APIs/oag-flightinfo-api/oagflightinfo_docker.dockerfile 
+        ls -ltr
+        cd APIs\oag-flightinfo-api
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/toolsunfolded_repo:oag_flight_info . 
         
         # Push the image to Docker Hub
         docker push ${{ secrets.DOCKER_USERNAME }}/toolsunfolded_repo:oag_flight_info
