@@ -25,10 +25,10 @@ jobs:
     - name: Build and push Docker image
       run: |
         # Build the Docker image and tag it with 'latest'
-        pwd 
-        ls -ltr
         cd APIs/oag-flightinfo-api/
         pwd
+        ls -ltr
+        mv Dockerfile.dockerfile Dockerfile.Dockerfile
         ls -ltr
         docker build -t ${{ secrets.DOCKER_USERNAME }}/toolsunfolded_repo:oag_flight_info .
         echo " docker build completed"
