@@ -1,0 +1,34 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }} 
+        password: ${{ secrets.DOCKER_PASSWORD }}  
+
+    - name: Build and push Docker image
+      run: |
+        # Build the Docker image and tag it with 'latest'
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/toolsunfolded_repo:oag_flight_info .
+        
+        # Push the image to Docker Hub
+        docker push ${{ secrets.DOCKER_USERNAME }}/toolsunfolded_repo:oag_flight_info
+
+    - name: Logout from Docker Hub
+      run: docker logout
