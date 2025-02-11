@@ -8,7 +8,7 @@ WORKDIR /apps
 COPY . /apps
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Set environment variables (optional, you can use GitHub secrets)
 # ENV SUBSCRIPTION_KEY <your_subscription_key>
